@@ -1,9 +1,11 @@
 ﻿
 
-string path = @"c:\Users\ElisendaGascon\repos\advent-of-code-2022\Input\Day01.txt";
+string path = @"c:\Users\ElisendaGascon\repos\advent-of-code-2022\Solutions\Day01\Day01_Input.txt";
 string data = File.ReadAllText(path);
 
-var result = data
+// Console.WriteLine(data);
+
+int result = data
     .Split("\n\n")
     .Select(x => x
         .Split("\n", StringSplitOptions.RemoveEmptyEntries)
@@ -15,7 +17,7 @@ Console.WriteLine(result);
 
 
 
-
+/*
 string initialString = "1\n2\n3\n4\n\n5\n6";
 
 var maxOfSum = initialString
@@ -26,4 +28,4 @@ var maxOfSum = initialString
         .Aggregate((a, b) => a + b))
     .Max();
 
-Console.WriteLine(maxOfSum);
+Console.WriteLine(maxOfSum);*/
