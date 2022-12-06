@@ -28,13 +28,7 @@ int IsFullyContained(IEnumerable<((int, int), (int, int))> assignments)
         var c = assignment.Item2.Item1;
         var d = assignment.Item2.Item2;
 
-        if (a > c & b < d 
-           || a < c & b > d
-           || a >= c & b < d
-           || a > c & b <= d
-           || a >= c & b <= d
-           || a <= c & b > d
-           || a < c & b >= d)
+        if (a >= c & b <= d || a <= c & b >= d)
         {
             fullyContainedCount++;
         }
