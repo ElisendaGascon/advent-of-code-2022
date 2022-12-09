@@ -38,11 +38,6 @@ Stack<char>[] stacksList = new Stack<char>[]
     new Stack<char>("FCQG".ToCharArray())
  };
 
-foreach (Stack<char> stack in stacksList)
-{
-    Console.WriteLine(stack.Peek());
-}
-
 
 for (int i = 0; i < move.Count; i++)
 {
@@ -52,7 +47,7 @@ for (int i = 0; i < move.Count; i++)
 
     for (int j = 0; j < numberToMove; j++)
     {
-        if ( stacksList[originStack].Count == 0)
+        if (stacksList[originStack].Count == 0)
         {
             break;
         }
@@ -60,9 +55,35 @@ for (int i = 0; i < move.Count; i++)
     }
 }
 
-foreach (Stack<char> stack in stacksList)
-{
-    Console.WriteLine(stack.Peek());
-}
+var resultPart1 = string.Concat(stacksList.Select(x => x.Peek()));
+Console.WriteLine(resultPart1);
 
 // Part 2
+
+for (int i = 0; i < move.Count; i++)
+{
+    int destinationStack = to[i] - 1;
+    int originStack = from[i] - 1;
+    int numberToMove  = move[i];
+
+    Stack<char> intermediateStack = new Stack<char>();
+    //IEnumerable<char> listToMove = new List<char>();
+
+    for (int j = 0; j < numberToMove; j++)
+    {
+        if (stacksList[originStack].Count == 0)
+        {
+            break;
+        }
+        intermediateStack.Push(stacksList[originStack].Pop());
+        // listToMove.Append(stacksList[originStack].Pop());
+    }
+
+    foreach (char c in intermediateStack)
+    {
+        stacksList[destinationStack].Push(c);
+    }
+}
+
+var resultPart2 = string.Concat(stacksList.Select(x => x.Peek()));
+Console.WriteLine(resultPart2);
