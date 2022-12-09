@@ -67,7 +67,6 @@ for (int i = 0; i < move.Count; i++)
     int numberToMove  = move[i];
 
     Stack<char> intermediateStack = new Stack<char>();
-    //IEnumerable<char> listToMove = new List<char>();
 
     for (int j = 0; j < numberToMove; j++)
     {
@@ -76,7 +75,6 @@ for (int i = 0; i < move.Count; i++)
             break;
         }
         intermediateStack.Push(stacksList[originStack].Pop());
-        // listToMove.Append(stacksList[originStack].Pop());
     }
 
     foreach (char c in intermediateStack)
